@@ -19,7 +19,7 @@ func main() {
 	}
 	buf := make([]byte, 80) // reserve 80 bytes buffer space
 	os.Stdin.Read(buf) // cmd window opens, waiting for input, <enter>
-	f.Write(buf)
+	_, err := f.Write(buf)
 	if err != nil {
 		fmt.Println("error : os.WriteString : " + err.String())
 		os.Exit(1)

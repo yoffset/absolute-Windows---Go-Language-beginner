@@ -23,20 +23,20 @@ func main() {
 		os.Exit(1)
 	}
 
-	f.WriteString(content)
+	_, err := f.WriteString(content)
 	if err != nil {
 		fmt.Println("error : os.WriteString : " + err.String())
 		os.Exit(1)
 	}
 
-	f.Write(contentB) // notice 8 on end
+	_, err := f.Write(contentB) // notice 8 on end
 	if err != nil {
 		fmt.Println("error : os.Write : " + err.String())
 		os.Exit(1)
 	}
 
 	f.Seek(-2, 2)           // backs up 2 bytes for next write start
-	f.WriteString(contentC) // backed up over 8 - how about that?
+	_, err := f.WriteString(contentC) // backed up over 8 - how about that?
 	if err != nil {
 		fmt.Println("error : os.WriteString : " + err.String())
 		os.Exit(1)
