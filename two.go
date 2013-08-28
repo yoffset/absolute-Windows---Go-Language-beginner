@@ -25,7 +25,7 @@ func main() {
 	}
 	// use f to write some content in the file with this method of File
 	// func (file *File) WriteString(s string) (ret int, err Error)
-	f.WriteString(content)
+	_, err := f.WriteString(content)
 	if err != nil {
 		fmt.Println("error : os.WriteString : " + err.String())
 		os.Exit(1)
